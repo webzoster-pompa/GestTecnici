@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS absences (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  technicianId INT NOT NULL,
+  date DATETIME NOT NULL,
+  reason ENUM('ferie', 'malattia', 'permesso') NOT NULL,
+  notes TEXT,
+  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL,
+  INDEX idx_technician_date (technicianId, date)
+);
